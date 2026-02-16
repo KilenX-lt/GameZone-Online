@@ -1,0 +1,733 @@
+/* VARIABLES Y RESET */
+:root {
+    --primario: #0B1C2D;
+    --secundario: #00FF9C;
+    --gris-claro: #E5E5E5;
+    --blanco: #FFFFFF;
+    --dark-card: #162636;
+    --texto-oscuro: #2E2E2E;
+    --ocre-legal: #8B6B00;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primario);
+    color: var(--blanco);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .menu-categorias label {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* HEADER */
+.header {
+    padding: 12px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(11, 28, 45, 0.95);
+    backdrop-filter: blur(7px);
+    border-bottom: 2px solid var(--secundario, #00FF9C);
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-izquierda img {
+    width: 110px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #00FF9C);
+}
+
+.header-centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+    .header-centro h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 3.5rem;
+        color: #00FF9C;
+        margin: 0;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+    }
+
+/* MENÚ PRINCIPAL */
+.menu-principal ul {
+    display: flex;
+    gap: 120px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-principal a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    padding: 20px 0;
+}
+
+    .menu-principal a:hover {
+        color: #00FF9C;
+        text-shadow: 0 0 10px rgba(0, 255, 156, 0.5);
+    }
+
+.spacer-derecha {
+    width: 110px;
+}
+
+/* SECCIÓN PAGINA JUEGO */
+.jue-principal {
+    padding: 80px 10%;
+}
+
+.jue-bloque {
+    display: flex;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.jue-texto {
+    flex: 1;
+}
+
+    .jue-texto h2 {
+        color: var(--secundario);
+        font-size: 2.5rem;
+    }
+
+    .jue-texto p {
+        line-height: 1.8;
+        color: var(--gris-claro);
+    }
+
+/* SECCIÓN INFORMACIÓN */
+.info-principal {
+    padding: 80px 10%;
+}
+
+.info-bloque {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+.bloque-invertido {
+    flex-direction: row-reverse;
+}
+
+.info-texto h2 {
+    color: var(--secundario);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.info-texto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gris-claro);
+}
+
+.info-imagenes img {
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 15px 15px 0px var(--secundario);
+}
+
+/* CATEGORÍAS */
+.categorias {
+    padding: 60px 10%;
+    background-color: rgba(0,0,0,0.2);
+}
+
+    .categorias h2 {
+        color: var(--secundario);
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+.menu-categorias {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+    .menu-categorias label {
+        background-color: var(--secundario);
+        color: var(--primario);
+        padding: 12px 25px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+        .menu-categorias label:hover {
+            transform: scale(1.05);
+        }
+
+/* FILTRADO */
+input[type="radio"] {
+    display: none;
+}
+
+#accion:checked ~ .juegos .juego:not(.accion),
+#aventura:checked ~ .juegos .juego:not(.aventura),
+#rpg:checked ~ .juegos .juego:not(.rpg),
+#deportes:checked ~ .juegos .juego:not(.deportes),
+#estrategia:checked ~ .juegos .juego:not(.estrategia) {
+    display: none;
+}
+
+/* JUEGOS GRID */
+.juegos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.juego {
+    background: var(--dark-card);
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .juego:hover {
+        transform: translateY(-5px);
+        border: 1px solid var(--secundario);
+    }
+
+    .juego img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .juego h3 {
+        color: var(--secundario);
+        margin: 15px 0 5px 0;
+    }
+
+    .juego p {
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .juego span {
+        display: block;
+        margin-top: 15px;
+        color: var(--secundario);
+        font-weight: bold;
+    }
+
+/* DETALLE DE JUEGO DINÁMICO */
+.btn-volver {
+    background: var(--secundario);
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.juego-imagenes img {
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 15px 15px 0px var(--secundario);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.tag {
+    background: rgba(0, 255, 156, 0.1);
+    border: 1px solid var(--secundario);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.seccion-comentarios {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+}
+
+.comentario-item {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--secundario);
+}
+
+.formulario-comentario {
+    margin-top: 30px;
+    background: var(--dark-card);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+    .formulario-comentario input, .formulario-comentario textarea {
+        width: 100%;
+        background: var(--primario);
+        border: 1px solid #333;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+.btn-enviar {
+    background: var(--secundario);
+    color: var(--primario);
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* NOTICIAS */
+.noticias { padding: 80px 10%; }
+
+.noticias h2 {
+    color: var(--secundario);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.noticia {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    padding: 30px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    transition: 0.4s;
+}
+
+.noticia:hover {
+    transform: translateY(-10px);
+    border-color: var(--secundario);
+    box-shadow: 0 10px 30px rgba(0, 255, 156, 0.1);
+}
+
+.noticia img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.noticia h4 {
+    font-size: 1.8rem;
+    color: var(--secundario);
+    margin: 0 0 15px 0;
+}
+
+.noticia p {
+    line-height: 1.7;
+    color: var(--gris-claro);
+}
+
+
+/* ==================== CHATBOT STYLES ==================== */
+
+/* Ocultar el checkbox */
+.chatbot-toggle {
+    display: none;
+}
+
+/* Ocultar los radio buttons del chat */
+.chat-radio {
+    display: none;
+}
+
+/* Botón flotante */
+.chatbot-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secundario), #00cc7a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 255, 156, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(0, 255, 156, 0.6);
+}
+
+.chatbot-icon-open {
+    font-size: 28px;
+    display: block;
+}
+
+.chatbot-icon-close {
+    font-size: 24px;
+    display: none;
+    color: var(--primario);
+    font-weight: bold;
+}
+
+/* Mostrar X cuando está abierto */
+.chatbot-toggle:checked ~ .chatbot-button .chatbot-icon-open {
+    display: none;
+}
+
+.chatbot-toggle:checked ~ .chatbot-button .chatbot-icon-close {
+    display: block;
+}
+
+/* Contenedor del chatbot */
+.chatbot-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 380px;
+    height: 550px;
+    background: var(--dark-card);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.9);
+    transition: all 0.3s ease;
+    z-index: 998;
+    border: 2px solid var(--secundario);
+}
+
+/* Mostrar chatbot cuando está activo */
+.chatbot-toggle:checked ~ .chatbot-container {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* Header del chatbot */
+.chatbot-header {
+    background: linear-gradient(135deg, var(--secundario), #00cc7a);
+    padding: 20px;
+    border-radius: 13px 13px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h3 {
+    margin: 0;
+    color: var(--primario);
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.chatbot-close {
+    background: none;
+    border: none;
+    color: var(--primario);
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.chatbot-close:hover {
+    transform: rotate(90deg);
+}
+
+/* Cuerpo del chatbot */
+.chatbot-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chatbot-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chatbot-body::-webkit-scrollbar-thumb {
+    background: var(--secundario);
+    border-radius: 10px;
+}
+
+/* Mensajes */
+.chat-message {
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 85%;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bot-message {
+    background: rgba(0, 255, 156, 0.1);
+    border-left: 3px solid var(--secundario);
+    align-self: flex-start;
+}
+
+.bot-message p {
+    margin: 5px 0;
+    color: var(--gris-claro);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.bot-message strong {
+    color: var(--secundario);
+}
+
+.user-message {
+    background: var(--primario);
+    border: 1px solid var(--secundario);
+    align-self: flex-end;
+}
+
+.user-message p {
+    margin: 5px 0;
+    color: var(--blanco);
+    font-size: 0.9rem;
+}
+
+/* Opciones del chat */
+.chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chat-option-btn {
+    background: var(--primario);
+    color: var(--blanco);
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 156, 0.3);
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.chat-option-btn:hover {
+    background: var(--secundario);
+    color: var(--primario);
+    transform: translateX(5px);
+    border-color: var(--secundario);
+}
+
+/* Respuestas del chatbot */
+.chat-response {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Mostrar respuesta cuando se selecciona la opción */
+#opt-horarios:checked ~ .chat-options {
+    display: none;
+}
+
+#opt-horarios:checked ~ .resp-horarios {
+    display: flex;
+}
+
+#opt-envios:checked ~ .chat-options {
+    display: none;
+}
+
+#opt-envios:checked ~ .resp-envios {
+    display: flex;
+}
+
+#opt-recomendaciones:checked ~ .chat-options {
+    display: none;
+}
+
+#opt-recomendaciones:checked ~ .resp-recomendaciones {
+    display: flex;
+}
+
+#opt-soporte:checked ~ .chat-options {
+    display: none;
+}
+
+#opt-soporte:checked ~ .resp-soporte {
+    display: flex;
+}
+
+#opt-ofertas:checked ~ .chat-options {
+    display: none;
+}
+
+#opt-ofertas:checked ~ .resp-ofertas {
+    display: flex;
+}
+
+/* Botón de volver */
+.chat-back-btn {
+    background: var(--secundario);
+    color: var(--primario);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+}
+
+.chat-back-btn:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 0 15px var(--secundario);
+}
+
+/* Reset para volver al menú */
+#opt-reset:checked ~ .chat-response {
+    display: none;
+}
+
+#opt-reset:checked ~ .chat-options {
+    display: flex;
+}
+
+/* ==================== FIN CHATBOT STYLES ==================== */
+
+/* FOOTER */
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding-top: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+.footer-column, .social-links-vertical {
+    flex: 1;
+    padding-left: 40px;
+    border-left: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    .footer-column a, .social-links-vertical a {
+        color: #999;
+        text-decoration: none;
+        font-size: 0.85rem;
+    }
+
+        .footer-column a:hover, .social-links-vertical a:hover {
+            color: var(--secundario);
+        }
+
+.social-item {
+    display: flex;
+    align-items: center;
+}
+
+    .social-item img {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        filter: grayscale(100%);
+        transition: 0.3s;
+    }
+
+    .social-item:hover img {
+        filter: grayscale(0%);
+    }
+
+.footer-legal-bar {
+    background-color: #8B6B00;
+    padding: 15px 0;
+}
+
+.legal-content {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 0.8rem;
+}
+
+    .legal-content a, .legal-content span {
+        color: white;
+        text-decoration: none;
+    }
+
+    .legal-content a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive para el chatbot */
+@media (max-width: 768px) {
+    .chatbot-container {
+        width: 90%;
+        height: 70vh;
+        right: 5%;
+        bottom: 20px;
+    }
+    
+    .chatbot-button {
+        bottom: 20px;
+        right: 20px;
+    }
+}

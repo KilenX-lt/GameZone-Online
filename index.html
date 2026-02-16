@@ -1,0 +1,412 @@
+<!-- GRUPO N°1 Integrantes: Matias Suarez, Leo Troya y Adrián Ojeda-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>GAME ZONE ONLINE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header  class="header">      
+        <div class="header-container">
+            <div class="logo-izquierda">
+                <a href="#" onclick="mostrarCatalogo()">
+                  <img src="Imagenes/logo.png" alt="Logo Game Zone">
+                </a> 
+            </div>
+            <div class="header-centro">
+                <h1>GAME ZONE ONLINE</h1>
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="#" onclick="mostrarCatalogo()">Inicio</a></li>
+                        <li><a href="#Info" onclick="">Informacion</a></li>
+                        <li><a href="#Cat">Categorías</a></li>
+                        <li><a href="#Not">Noticias</a></li>
+                        <li><a href="#Con">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="spacer-derecha"></div>
+        </div>
+    </header>   
+
+    <section id="apartado-juego" class="detalle-juego" style="display: none;">
+        <div class="jue-principal">
+            <button class="btn-volver" onclick="mostrarCatalogo()">← VOLVER AL CATÁLOGO</button>
+            <div class="jue-bloque">
+                <div class="jue-texto">
+                    <h2 id="detalle-titulo">Título del Juego</h2>
+                    <span id="detalle-rating" style="color: var(--secundario); font-family: 'Orbitron'; font-size: 1.5rem;"></span>
+
+                    <div id="contenedor-dinamico-info">
+                        <p id="detalle-descripcion" style="margin-top: 20px;"></p>
+
+                        <div id="seccion-features"></div>
+
+                        <div class="seccion-comentarios">
+                            <h3>Comentarios de la comunidad</h3>
+                            <div id="lista-comentarios"></div>
+
+                            <div class="formulario-comentario">
+                                <h4>Deja tu opinión</h4>
+                                <input type="text" id="nombre-usuario" placeholder="Tu nombre o @User">
+                                <textarea id="texto-comentario" placeholder="Escribe qué te pareció el juego..."></textarea>
+                                <button class="btn-enviar" onclick="agregarComentario()">Publicar Comentario</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="juego-imagenes">
+                    <img id="detalle-img" src="" alt="Imagen del juego">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<main id="catalogo-principal">
+<section id="Info" class="info-principal">
+    <div class="info-bloque">
+        <div class="info-texto">
+            <h2>Liderando el Futuro Gamer</h2>
+            <p>
+                En el año 2026, GAME ZONE ONLINE se ha consolidado como el centro neurálgico para los entusiastas de la tecnología. Nuestra plataforma utiliza algoritmos avanzados para procesar tendencias globales en tiempo real, ofreciendo una biblioteca digital sin precedentes.
+            </p>
+        </div>
+        <div class="info-imagenes">
+            <img src="Imagenes/informacion.webp" alt="Setup gamer">
+        </div>
+    </div>
+
+    <div class="info-bloque bloque-invertido">
+        <div class="info-texto">
+            <h2>Comunidad Global Conectada</h2>
+            <p>
+                Más que una base de datos, somos un ecosistema. Conectamos a jugadores de todo el mundo mediante sistemas de puntuación verificados y análisis técnicos profundos de cada lanzamiento, garantizando que siempre encuentres tu próxima gran aventura con total confianza.
+            </p>
+        </div>
+        <div class="info-imagenes">
+            <img src="Imagenes/informacion2.jpg" alt="Videojuegos">
+        </div>
+    </div>
+</section>
+
+        <section id="Cat" class="categorias">
+            <h2>Explorar Categorías</h2>
+
+            <input type="radio" name="filtro" id="todos" checked>
+            <input type="radio" name="filtro" id="accion">
+            <input type="radio" name="filtro" id="aventura">
+            <input type="radio" name="filtro" id="rpg">
+            <input type="radio" name="filtro" id="deportes">
+            <input type="radio" name="filtro" id="estrategia">
+
+            <div class="menu-categorias">
+                <label for="todos">Todos</label>
+                <label for="accion">Acción</label>
+                <label for="aventura">Aventura</label>
+                <label for="rpg">RPG</label>
+                <label for="deportes">Deportes</label>
+                <label for="estrategia">Estrategia</label>
+            </div>
+
+            <div class="juegos">
+                <div class="juego accion"
+                     data-info="Call of Duty 2026 ofrece una experiencia bélica hiperrealista con gráficos de última generación."
+                     data-features="4K Pro, 120 FPS, Ray Tracing, Multijugador Global"
+                     data-comments="Inmersión total - @Ghost, El mejor de la saga - @CaptainPrice">
+                    <img src="Imagenes/call of duty.jpeg"><h3>Call of Duty</h3><p>Acción y disparos en primera persona.</p><span>⭐ 9.0</span>
+                </div>
+
+                <div class="juego accion"
+                     data-info="Doom Eternal lleva el combate frenético a niveles nunca antes vistos."
+                     data-features="Motor IdTech 7, Banda sonora Metal, Optimización Extrema"
+                     data-comments="Adrenalina pura - @Slayer">
+                    <img src="Imagenes/doom.jpg"><h3>DOOM</h3><p>Combate frenético contra demonios.</p><span>⭐ 8.9</span>
+                </div>
+
+                <div class="juego aventura"
+                     data-info="Zelda: Breath of the Future nos lleva a un Hyrule tecnológico y vasto."
+                     data-features="Mundo Abierto, Clima Dinámico, IA Avanzada"
+                     data-comments="Simplemente arte - @ZeldaFan">
+                    <img src="Imagenes/zelda.jpg"><h3>Zelda</h3><p>Exploración épica en un mundo vivo.</p><span>⭐ 9.8</span>
+                </div>
+
+                <div class="juego aventura"
+                     data-info="Uncharted: The Lost Legacy II presenta una nueva aventura llena de misterios."
+                     data-features="Cinemáticas 8K, Captura de Movimiento 2.0"
+                     data-comments="Parece una película - @Drake">
+                    <img src="Imagenes/uncharted.webp"><h3>Uncharted</h3><p>Búsqueda de tesoros perdidos.</p><span>⭐ 9.0</span>
+                </div>
+
+                <div class="juego rpg"
+                     data-info="The Witcher 4 inicia una nueva saga con decisiones que cambian el mundo."
+                     data-features="Narrativa Ramificada, Unreal Engine 5, Magia renovada"
+                     data-comments="Historia increíble - @Geralt">
+                    <img src="Imagenes/the witcher.jpg"><h3>The Witcher</h3><p>Caza monstruos en un mundo oscuro.</p><span>⭐ 9.6</span>
+                </div>
+
+                <div class="juego rpg"
+                     data-info="Elden Ring: Shadow of the Erdtree expande el desafío definitivo."
+                     data-features="Dificultad Hardcore, Arte Gótico, Cooperativo"
+                     data-comments="Morí 100 veces y me encanta - @Tarnished">
+                    <img src="Imagenes/eldenRing.jpeg"><h3>Elden Ring</h3><p>Desafío épico en las Tierras Intermedias.</p><span>⭐ 9.7</span>
+                </div>
+
+                <div class="juego deportes"
+                     data-info="FIFA 26 ofrece el simulador de fútbol más realista hasta la fecha."
+                     data-features="HyperMotion 5, Modo Carrera Online"
+                     data-comments="Muy realista - @Pichichi">
+                    <img src="Imagenes/fifa.jpeg"><h3>FIFA 26</h3><p>El simulador de fútbol definitivo.</p><span>⭐ 8.7</span>
+                </div>
+
+                <div class="juego estrategia"
+                     data-info="Age of Empires IV: Definitive Edition con nuevas campañas históricas."
+                     data-features="4K Assets, RTS Clásico, Batallas Masivas"
+                     data-comments="Estrategia pura - @King">
+                    <img src="Imagenes/AgeOfEmpires.jpeg"><h3>Age of Empires</h3><p>Conquista civilizaciones históricas.</p><span>⭐ 9.2</span>
+                </div>
+            </div>
+        </section>
+
+
+
+    <section id="Not" class="noticias">
+    <h2>Noticias Destacadas</h2>
+    <article class="noticia">   
+        <img src="Imagenes/noticia1.jpeg" alt="GTA VI">
+        <div class="noticia-contenido">
+            <h4>GTA VI: Filtraciones revelan mapa masivo</h4>
+            <p>Fuentes cercanas a Rockstar aseguran que el mapa de Vice City será tres veces más grande que el de la entrega anterior, incluyendo interiores dinámicos y un sistema de clima extremo que afectará la jugabilidad de manera realista.</p>
+        </div>
+    </article>
+
+    <article class="noticia">
+        <img src="Imagenes/noticia2.webp" alt="eSports">
+        <div class="noticia-contenido">
+            <h4>El auge de la Realidad Virtual en eSports</h4>
+            <p>Los torneos de VR están rompiendo récords de audiencia en 2026. La nueva liga profesional promete integrar sensores hápticos de cuerpo completo, permitiendo que los espectadores sientan la intensidad de la competencia desde sus hogares.</p>
+        </div>
+    </article>
+</section>
+    </main>
+    
+
+    <!-- ASISTENTE CHATBOT -->
+    <input type="checkbox" id="chatbot-toggle" class="chatbot-toggle">
+    
+    <!-- Botón flotante para abrir/cerrar -->
+    <label for="chatbot-toggle" class="chatbot-button">
+        <span class="chatbot-icon-open">💬</span>
+        <span class="chatbot-icon-close">✕</span>
+    </label>
+
+    <!-- Ventana del chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>🎮 Asistente GAME ZONE</h3>
+            <label for="chatbot-toggle" class="chatbot-close">✕</label>
+        </div>
+        
+        <div class="chatbot-body">
+            <!-- Mensaje de bienvenida -->
+            <div class="chat-message bot-message">
+                <p>¡Hola! Soy tu asistente virtual de GAME ZONE ONLINE. ¿En qué puedo ayudarte hoy?</p>
+            </div>
+
+            <!-- Inputs ocultos para controlar las respuestas -->
+            <input type="radio" name="chat-option" id="opt-horarios" class="chat-radio">
+            <input type="radio" name="chat-option" id="opt-envios" class="chat-radio">
+            <input type="radio" name="chat-option" id="opt-recomendaciones" class="chat-radio">
+            <input type="radio" name="chat-option" id="opt-soporte" class="chat-radio">
+            <input type="radio" name="chat-option" id="opt-ofertas" class="chat-radio">
+            <input type="radio" name="chat-option" id="opt-reset" class="chat-radio">
+
+            <!-- Botones de opciones -->
+            <div class="chat-options">
+                <label for="opt-horarios" class="chat-option-btn">📅 Horarios de atención</label>
+                <label for="opt-envios" class="chat-option-btn">📦 Información de envíos</label>
+                <label for="opt-recomendaciones" class="chat-option-btn">🎯 Recomendaciones</label>
+                <label for="opt-soporte" class="chat-option-btn">🛠️ Soporte técnico</label>
+                <label for="opt-ofertas" class="chat-option-btn">💰 Ofertas especiales</label>
+            </div>
+
+            <!-- Respuestas automáticas -->
+            <div class="chat-response resp-horarios">
+                <div class="chat-message user-message">
+                    <p>📅 Horarios de atención</p>
+                </div>
+                <div class="chat-message bot-message">
+                    <p>Nuestro horario de atención es:</p>
+                    <p><strong>Lunes a Viernes:</strong> 9:00 AM - 8:00 PM<br>
+                    <strong>Sábados:</strong> 10:00 AM - 6:00 PM<br>
+                    <strong>Domingos:</strong> 10:00 AM - 4:00 PM</p>
+                    <p>¿Necesitas algo más?</p>
+                </div>
+                <label for="opt-reset" class="chat-back-btn">← Volver al menú</label>
+            </div>
+
+            <div class="chat-response resp-envios">
+                <div class="chat-message user-message">
+                    <p>📦 Información de envíos</p>
+                </div>
+                <div class="chat-message bot-message">
+                    <p><strong>Envíos disponibles:</strong></p>
+                    <p>• Envío estándar (3-5 días): $4.99<br>
+                    • Envío express (1-2 días): $9.99<br>
+                    • Envío GRATIS en compras superiores a $50</p>
+                    <p>Realizamos entregas a todo el país 🚚</p>
+                </div>
+                <label for="opt-reset" class="chat-back-btn">← Volver al menú</label>
+            </div>
+
+            <div class="chat-response resp-recomendaciones">
+                <div class="chat-message user-message">
+                    <p>🎯 Recomendaciones</p>
+                </div>
+                <div class="chat-message bot-message">
+                    <p><strong>Juegos más populares este mes:</strong></p>
+                    <p>1. ⭐ Zelda - 9.8/10<br>
+                    2. ⭐ Elden Ring - 9.7/10<br>
+                    3. ⭐ The Witcher - 9.6/10</p>
+                    <p>Si te gusta la acción, te recomendamos <strong>Halo</strong> y <strong>Call of Duty</strong>!</p>
+                </div>
+                <label for="opt-reset" class="chat-back-btn">← Volver al menú</label>
+            </div>
+
+            <div class="chat-response resp-soporte">
+                <div class="chat-message user-message">
+                    <p>🛠️ Soporte técnico</p>
+                </div>
+                <div class="chat-message bot-message">
+                    <p><strong>¿Tienes problemas técnicos?</strong></p>
+                    <p>Puedes contactarnos por:</p>
+                    <p>📧 Email: soporte@gamezone.com<br>
+                    📞 Teléfono: +1 (800) 555-GAME<br>
+                    💬 WhatsApp: +1 (800) 555-0123</p>
+                    <p>Tiempo de respuesta: 24-48 horas</p>
+                </div>
+                <label for="opt-reset" class="chat-back-btn">← Volver al menú</label>
+            </div>
+
+            <div class="chat-response resp-ofertas">
+                <div class="chat-message user-message">
+                    <p>💰 Ofertas especiales</p>
+                </div>
+                <div class="chat-message bot-message">
+                    <p><strong>🔥 Ofertas activas:</strong></p>
+                    <p>• 30% de descuento en juegos de estrategia<br>
+                    • Lleva 2 juegos RPG y obtén 40% OFF<br>
+                    • Bundle FIFA 24 + Rocket League: $79.99</p>
+                    <p>¡Aprovecha antes de que terminen! ⏰</p>
+                </div>
+                <label for="opt-reset" class="chat-back-btn">← Volver al menú</label>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="Con" class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="#Info">INFORMACION</a>
+                <a href="#Cat">CATEGORIAS</a>
+                <a href="#Not">NOTICIAS</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">CHAT DE AYUDA</a>
+                <a href="#">PUBLICIDAD</a>
+            </div>
+            <div class="social-links-vertical">
+                <a href="https://www.facebook.com/?locale=es_LA" class="social-item"><img src="Imagenes/face.png" alt="Facebook"> FACEBOOK</a>
+                <a href="https://x.com/?lang=es" class="social-item"><img src="Imagenes/twiter.png" alt="Twitter"> TWITTER</a>
+                <a href="https://www.tiktok.com/@handyspiele7/video/7582374706825760021?q=juegos%20accion&t=1770521873104" class="social-item"><img src="Imagenes/tiktok.png" alt="TikTok"> TIKTOK</a>
+            </div>
+        </div>
+        <div class="footer-legal-bar">
+            <div class="legal-content">
+                <span>© 2026 GAME ZONE ONLINE</span>
+                <a href="#">Guías de Conducta</a>
+                <a href="#">Términos de Servicio</a>
+                <a href="#">Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const juegos = document.querySelectorAll('.juego');
+        const catalogo = document.getElementById('catalogo-principal');
+        const apartado = document.getElementById('apartado-juego');
+
+        juegos.forEach(juego => {
+            juego.addEventListener('click', () => {
+                const titulo = juego.querySelector('h3').innerText;
+                const img = juego.querySelector('img').src;
+                const rating = juego.querySelector('span').innerText;
+                const info = juego.getAttribute('data-info');
+
+                // Extraer características y comentarios
+                const features = juego.getAttribute('data-features').split(',');
+                const comments = juego.getAttribute('data-comments').split(',');
+
+                document.getElementById('detalle-titulo').innerText = titulo;
+                document.getElementById('detalle-img').src = img;
+                document.getElementById('detalle-rating').innerText = rating;
+                document.getElementById('detalle-descripcion').innerText = info;
+
+                // Renderizar Características
+                let featuresHTML = '<div class="tags-container">';
+                features.forEach(f => {
+                    featuresHTML += `<span class="tag">⚡ ${f.trim()}</span>`;
+                });
+                featuresHTML += '</div>';
+                document.getElementById('seccion-features').innerHTML = '<h3>Características</h3>' + featuresHTML;
+
+                // Renderizar Comentarios Existentes
+                const listaComentarios = document.getElementById('lista-comentarios');
+                listaComentarios.innerHTML = "";
+                comments.forEach(c => {
+                    const div = document.createElement('div');
+                    div.className = 'comentario-item';
+                    div.innerHTML = `<p>${c.trim()}</p>`;
+                    listaComentarios.appendChild(div);
+                });
+
+                catalogo.style.display = 'none';
+                apartado.style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+        });
+
+        function agregarComentario() {
+            const nombre = document.getElementById('nombre-usuario').value;
+            const texto = document.getElementById('texto-comentario').value;
+
+            if (nombre && texto) {
+                const lista = document.getElementById('lista-comentarios');
+                const div = document.createElement('div');
+                div.className = 'comentario-item nuevo';
+                div.innerHTML = `<p><strong>${nombre}:</strong> ${texto}</p>`;
+                lista.prepend(div);
+
+                // Limpiar inputs
+                document.getElementById('nombre-usuario').value = "";
+                document.getElementById('texto-comentario').value = "";
+            } else {
+                alert("Por favor, completa ambos campos.");
+            }
+        }
+
+        function mostrarCatalogo() {
+            apartado.style.display = 'none';
+            catalogo.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
